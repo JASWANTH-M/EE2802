@@ -147,18 +147,47 @@ l = a-2x, \, b = a-2x, \, h = x
 The length, breadth, height are positive. These give the constraints on $x$
 \begin{align}
 a-2x > 0,\,  x > 0\\
-\implies 0 < x < \frac{a}{2} \label{eq:0}
+\implies 0 < x < \frac{a}{2} \label{eq:1}
 \end{align} 
 Volume of the box is given by
 \begin{align}
 V\brak{x} = x(a-2x)^2
 \end{align}
-We now check the convexity of the function $V\brak{x}$ under the constraints given by \eqref{eq:0}
+We now check the convexity of the function $V\brak{x}$ under the constraints given by \eqref{eq:1}
 \begin{align}
 V^{\prime}\brak{x} &= (a-2x)(a-6x)\\
 V^{\prime\prime}\brak{x} &= 8(3x - a)
 \end{align}
 For $x > \frac{a}{3}$ the function $V\brak{x}$ is convex, otherwise it is concave. The function convexity is changing under the constraints. 
-So the given problem cannot be expressed as a Convex optimization problem.
+So the given problem cannot be expressed as a Convex optimization problem. The problem can be solved using the Gradient Descent Algorithm. It can be modified as
+\begin{align}
+\min_{x}f(x) = -V\brak{x} \label{eq:2}
+\end{align}
+Here we have,
+\begin{align}
+f(x) &= -x(a-2x)^2 \label{eq:3}\\
+f^{\prime}\brak{x} &= -(a-2x)(a-6x) \label{eq:4}
+\end{align}
+A numerical solution for \eqref{eq:2} is obtained as
+\begin{align}
+\lambda_{n+1} &= \lambda_{n} - \alpha f^{\prime}\brak{x}
+\end{align}
+where $\lambda_0$ is an inital guess and $\mu$ is a variable parameter. These parameters decide how fast the algorithm converges.
+By taking the parameters as listed in the below table
+\begin{table}[h]
+\centering
+\input{tables/table1.tex}
+\caption{}
+\label{tab:1}
+\end{table}
+
+The value of $x$ obtained is
+\begin{align}
+x = 3
+\end{align}
+From equation \eqref{eq:2}, the minimum value of $f\brak{x}$ is equivalent to maximum value of $V\brak{x}$. Hence the maximum value of $V\brak{x}$ occurs at $x = 3$.
+\begin{align}
+V\brak{3} = 432 
+\end{align}
 \end{enumerate}
 \end{document}
