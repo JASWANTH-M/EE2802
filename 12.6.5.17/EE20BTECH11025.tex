@@ -153,13 +153,14 @@ Volume of the box is given by
 \begin{align}
 V\brak{x} = x(a-2x)^2
 \end{align}
-We now check the convexity of the function $V\brak{x}$ under the constraints given by \eqref{eq:1}
+\begin{enumerate}
+\item We now check the convexity of the function $V\brak{x}$ under the constraints given by \eqref{eq:1}
 \begin{align}
 V^{\prime}\brak{x} &= (a-2x)(a-6x)\\
 V^{\prime\prime}\brak{x} &= 8(3x - a)
 \end{align}
-For $x > \frac{a}{3}$ the function $V\brak{x}$ is convex, otherwise it is concave. The function convexity is changing under the constraints. 
-So the given problem cannot be expressed as a Convex optimization problem. The problem can be solved using the Gradient Descent Algorithm. It can be modified as
+For $x > \frac{a}{3}$ the function $V\brak{x}$ is convex. The function convexity is changing under the constraints. So the given problem cannot be expressed as a Convex optimization problem. 
+\item The problem can be solved using the Gradient Descent Algorithm. It can be modified as
 \begin{align}
 \min_{x}f(x) = -V\brak{x} \label{eq:2}
 \end{align}
@@ -189,5 +190,6 @@ From equation \eqref{eq:2}, the minimum value of $f\brak{x}$ is equivalent to ma
 \begin{align}
 V\brak{3} = 432 
 \end{align}
+\end{enumerate}
 \end{enumerate}
 \end{document}
