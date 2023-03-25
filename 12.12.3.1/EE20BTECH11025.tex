@@ -166,8 +166,8 @@ Vitamin A in the diet is given by,
 Z = 6x + 3y
 \end{align}
 
-
-So, the given problem can be formulated as,
+\begin{enumerate}
+\item Using cvxpy method: The given problem can be formulated as,
 \begin{align}
 \min_{\vec{x}} -Z &= \myvec{-6 & -3}\vec{x} \\
 \text{s.t.} \quad \vec{A}\vec{x} &\leq B
@@ -179,9 +179,39 @@ B &= \myvec{0\\0\\-80\\-115\\150}
 \end{align}
 By solving using cvxpy, we get
 \begin{align}
-\min_{\vec{x}} Z &= 285 \\
+\max_{\vec{x}} Z &= 285 \\
 \vec{x} &= \myvec{40 \\15} 
 \end{align}
+\item Using Corner point method: The corner points of the inequalities are:
+\begin{align}
+\vec{P} &= \myvec{2 \\ 72}\\
+\vec{Q} &= \myvec{15 \\ 20}\\
+\vec{R} &= \myvec{40 \\ 15}
+\end{align}
+We have
+\begin{align}
+Z = – 3x + 4 y \label{eq:6}
+\end{align}
+Substituting above values of corner points in Equation \eqref{eq:6} to get the value of $Z$, as shown in the table \ref{tab:1}
+\begin{table}[h]
+\centering
+\input{tables/table1.tex}
+\caption{}
+\label{tab:1}
+\end{table}
+From the table \ref{tab:1}, the optimum point and optimum value are 
+\begin{align}
+\vec{R} &=\myvec{4\\0}\\
+\max Z &= 285
+\end{align}
+\begin{figure}[ht]
+\centering
+\includegraphics[width = \columnwidth]{"figs/fig.png"}
+\caption{Graph}
+\label{fig:1}
+\end{figure}
+
+\end{enumerate}
 \end{enumerate}
 \end{document}
 
