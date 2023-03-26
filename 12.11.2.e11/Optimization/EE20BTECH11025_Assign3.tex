@@ -168,7 +168,7 @@ Here we have the values of $\vec{A}, \vec{M}$ as
 \end{align}
 The given problem can be formulated as 
 \begin{align}
-\min_{\bm{\lambda}} d &= \norm{\vec{A}-\vec{M}\bm{\lambda}}\\
+\min_{\bm{\lambda}} d^2 &= \bm{\lambda}^{\top}\vec{M}^\top\vec{M}\bm{\lambda} - 2\vec{A}^\top\vec{M}\bm{\lambda}+\vec{A}^\top\vec{A}\\
 \text{s.t.} \quad \bm{\lambda} &\in \mathbb{R}^2 
 \end{align}
 By solving using cvxpy, we get
