@@ -153,14 +153,16 @@ appears. The probability that actually there was head is
 \begin{align}
 \pr{E} &= \frac{4}{5}
 \end{align}
-Let $X$ denote the event of occuring a head when a coin is tossed
+Let $X$ denote the event of occuring a head when a coin is tossed. The probability of getting head is $\frac{1}{2}$, whether A speaks truth or not
 \begin{align}
-\pr{X} = \frac{1}{2}
+\pr{X \mid E} = \frac{1}{2}
 \end{align}
-Note that the events $X$, $E$ are independent. The probability that actually there was head, when A reports that a head appears is,
+The probability that actually there was head, when A reports that a head appears is,
 \begin{align}
-\pr{E \mid X} &= \pr{E}\\
-&= \frac{4}{5} 
+\pr{E \mid X} &= \frac{\pr{EX}}{\pr{X}}\\
+&= \frac{\pr{E}\pr{X \mid E}}{\pr{X}}\\
+&= \frac{\frac{4}{5}\times \frac{1}{2}}{\frac{1}{2}}\\
+&= \frac{4}{5}
 \end{align}
 \end{enumerate}
 \end{document}
