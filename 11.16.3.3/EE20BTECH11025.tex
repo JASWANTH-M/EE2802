@@ -155,7 +155,19 @@ columns=fullflexible
 \caption{Random variable X}
 \label{tab:1}
 \end{table}
-
+\begin{align}
+\label{eq:dice_pmf_xi}
+F_{X}\brak{n} = 
+\begin{cases}
+0 & n < 1 \\
+\frac{1}{6} & 1 \le n < 2 \\
+\frac{1}{3} & 2 \le n < 3 \\
+\frac{1}{2} & 3 \le n < 4 \\
+\frac{2}{3} & 4 \le n < 5 \\
+\frac{5}{6} & 5 \le n < 6 \\
+1 & otherwise
+\end{cases}
+\end{align}
 \begin{enumerate}
 \item The set of possible prime numbers in a die roll contains 2,3,5
 \begin{align} 
@@ -165,21 +177,24 @@ columns=fullflexible
 \item The probability that a number greater than or equal to 3 will appear is given by
 \begin{align}
 \pr{X \geq 3} &= 1 - \pr{X \leq 2}\\
-&= 1 - \frac{1}{3}\\
+&= 1 - F_{X}\brak{2}\\
 &= \frac{2}{3}
 \end{align}
 \item The probability that a number less than or equal to 1 will appear is given by
 \begin{align}
-\pr{X \leq 1} &= \frac{1}{6}
+\pr{X \leq 1} &= F_{X}\brak{1}\\
+&= \frac{1}{6}
 \end{align}
 \item The probability that a number greater than 6 will appear is given by
 \begin{align}
 \pr{X > 6} &= 1 - \pr{X \leq 6}\\
+&= 1 - F_{X}\brak{6}\\
 &= 0
 \end{align}
 \item The probability that a number less than 6 will appear is given by
 \begin{align}
 \pr{X < 6} &= \pr{X \leq 5}\\
+&= F_{X}\brak{5}\\
 &= \frac{5}{6}
 \end{align}
 \end{enumerate}
