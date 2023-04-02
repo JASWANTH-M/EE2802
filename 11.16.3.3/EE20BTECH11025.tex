@@ -164,15 +164,18 @@ columns=fullflexible
 
 The CDF of the random variable $X$ is given by,
 \begin{align}
+F_{X}\brak{n} = 	\pr{X \le n} \label{eq:2}
+\end{align}
+From the equation \eqref{eq:2} we get,
+\begin{align}
 F_{X}\brak{n} = 
 \begin{cases}
 0 & n < 1 \\
-\frac{[n]}{6} & 1 \le n \leq 6 \\
+\frac{n}{6} & 1 \le n \leq 6 \\
 1 & \text{otherwise}
 \end{cases}
 \end{align}
-where [.] denotes Greatest Integer function. The graph of the CDF function is shown in the figure 
-%\begin{align}
+The graph of the CDF function is shown in the figure \ref{fig:1}
 %F_{X}\brak{n} = 
 %\begin{cases}
 %0 & n < 1 \\
