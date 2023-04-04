@@ -146,27 +146,53 @@ are drawn from the box, what is the probability that
 \item all will be blue?
 \item atleast one will be green?
 \end{enumerate}
-\textbf{Solution:} Consider the random variables $X_1,X_2,X_3,X_4,X_5$ as described in the table \ref{tab:1}.
+\textbf{Solution:}
+
+\textbf{Lemma:}
+Consider the generalized problem, where there are total $N$ marbles - $P$ red, $Q$ blue, $R$ green. We need to find the probability of the event where $n$ marbles drawn such that there are - $p$ red, $q$ blue, $r$ green marbles.\\
+
+Consider the random variable $X_i$, denoting the ith draw, $i \in \{1,2,\cdots, n\}$ as shown in the table \ref{tab:1}
 \begin{table}[h]
 \centering
 \input{tables/table1.tex}
-\caption{Random variables $X_1,X_2,X_3,X_4,X_5$}
+\caption{Random variables $X_i$}
 \label{tab:1}
 \end{table}
 
-Total marbles in the box are 60.
-\begin{enumerate}
-\item The probability that all drawn marbles are blue is given by the expression,
+The probability that the first $p$ draws are red, next $q$ draws are blue, next $r$ draws are green is given by the expression,
 \begin{align}
-\pr{X_1 = 1, X_2 = 1, X_3 = 1, X_4 = 1, X_5 = 1}
+\pr{X_1 = 0, \cdots, X_p = 0, X_{p+1} = 1, \cdots X_{p+q} = 1, X_{p+q+1} = 2, \cdots X_{p+q+r} = 2}
 \end{align}
+\begin{align}
+&= \brak{\frac{P}{N}\times \cdots \times \frac{P-\brak{p-1}}{N-\brak{p-1}}}\brak{\frac{Q}{N-p}\times \cdots \times \frac{Q-\brak{q-1}}{N-\brak{p+q-1}}} \brak{\frac{R}{N-\brak{p+q}} \times \cdots \times \frac{R-\brak{r-1}}{N-\brak{p+q+r-1}}}\\
+&= \frac{P! Q! R! \brak{N-\brak{p+q+r}}!}{N!\brak{P-p}!\brak{Q-q}!\brak{R-r}!} \\
+&= \frac{P! Q! R! \brak{N-n}!}{N!\brak{P-p}!\brak{Q-q}!\brak{R-r}!} \label{eq:1}
+\end{align}
+The expression \ref{eq:1} is one possibility of draws such that there are - $p$ red, $q$ blue, $r$ greem marbles. There are $\frac{n!}{p!q!r!}$ such terms, All have the same probability. Hence the required probability is given by, 
+\begin{align}
+&= \frac{n!}{p!q!r!} \frac{P! Q! R! \brak{N-n}!}{N!\brak{P-p}!\brak{Q-q}!\brak{R-r}!}\\
+&= \frac{P!}{p!\brak{P-p}!}\frac{Q!}{q!\brak{Q-q}!}\frac{R!}{R!\brak{R-r}!}\frac{n!\brak{N-n}!}{N!}\\
+&= \frac{^{P}C_{p} \times ^{Q}C_{q} \times ^{R}C_{r}}{^{N}C_{n}}
+\label{eq:2}
+\end{align}
+%\begin{align}
+%\brak{\frac{p}{N}\times \frac{p-1}{N-1} \cdots \times \frac{1}{N-\brak{p-1}}}\brak{\frac{q}{N-\brak{p-1}-1}\times \frac{q-1}{N-\brak{p-1}-2} \cdots \times \frac{1}{N-\brak{p-1}-\brak{q-1}}} \brak{\frac{r}{N-\brak{p-1}-\brak{q-1}-1}\times \frac{r-1}{N-\brak{p-1}-\brak{q-1}-2} \cdots \times \frac{1}{N-\brak{p-1}-\brak{q-1}-\brak{r-1}}}
+%\end{align}
+\newpage
+In this question, total marbles in the box are 60 - 10 red, 20 blue, 30 green. Out of which 5 balls are drawn. Hence we have,
+\begin{align}
+N = 60, \, P = 10, \,Q = 20,  \, R = 30, \,n = 5
+\end{align}
+\begin{enumerate}
+\item The probability that all drawn marbles are blue implies
+\begin{align}
+p = 0,\,  q = 5, \, r = 0
+\end{align}
+From \eqref{eq:2} we get the probability as,
 \begin{align}
 &= \frac{^{20}C_{5}}{^{60}C_{5}}
 \end{align}
 \item The probability that the drawn marble contains atleast 1 green. This event is complement to the event where no marble drawn is green, Its probability is given by,
-\begin{align}
-\pr{X_1 \in \{0,1\}, X_2 \in \{0,1\}, X_3 \in \{0,1\}, X_4 \in \{0,1\}, X_5 \in \{0,1\}}
-\end{align}
 \begin{align}
 &= \frac{^{30}C_{5}}{^{60}C_{5}}
 \end{align}
@@ -177,5 +203,3 @@ Hence the required probability is given by,
 \end{enumerate}
 \end{enumerate}
 \end{document}
-
-
