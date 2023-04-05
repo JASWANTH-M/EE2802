@@ -2,14 +2,14 @@ import math
 import random
 
 # Parameters of the problem
-N = 10
 P = 3
 Q = 4
 R = 3
-n = 5
+N = P+Q+R
 p = 2
 q = 2
 r = 1
+n = p+q+r
 
 num_trials = 1000000
 num_successes = 0   # Number of successful trials
@@ -32,6 +32,8 @@ print('Simulated probability: ', probability)
 
 
 def draw_probability(N, P, Q, R, n, p, q, r):
+    N = P+Q+R
+    n = p+q+r
     num_ways = math.comb(P, p) * math.comb(Q, q) * math.comb(R, r)
     total_ways = math.comb(N, n)
     probability = num_ways / total_ways
