@@ -146,55 +146,71 @@ are drawn from the box, what is the probability that
 \item all will be blue?
 \item atleast one will be green?
 \end{enumerate}
-\textbf{Solution:}
+\textbf{Solution:}\\
 
-\textbf{Lemma:}
-Consider the generalized problem, where there are total $N$ marbles - $P$ red, $Q$ blue, $R$ green. We need to find the probability of the event where $n$ marbles drawn such that there are - $p$ red, $q$ blue, $r$ green marbles.\\
-
-Consider the random variable $X_i$, denoting the ith draw, $i \in \{1,2,\cdots, n\}$ as shown in the table \ref{tab:1}
-\begin{table}[h]
-\centering
-\input{tables/table1.tex}
-\caption{Random variables $X_i$}
-\label{tab:1}
-\end{table}
-
-The probability that the first $p$ draws are red, next $q$ draws are blue, next $r$ draws are green is given by the expression,
+\textbf{Lemma-1:}
+The probability of the event where $n$ marbles drawn such that there are - $r$ red, $b$ blue, $g$ green marbles from the box which contains total of $N$ marbles - $R$ red, $B$ blue, $G$ green is $\frac{^{R}C_{r} \, ^{B}C_{b} \, ^{G}C_{g}}{^{N}C_{n}}$\\
+\textbf{Proof:} \\
+Total ways of choosing $r$ red balls - $^{R}C_{r}$\\
+Total ways of choosing $b$ blue balls - $^{B}C_{b}$\\
+Total ways of choosing $g$ green balls - $^{G}C_{g}$\\
+The total number of ways of choosing $n$ marbles such that there are $r$ red, $b$ blue, $g$ green is $^{R}C_{r} \, ^{B}C_{b} \, ^{G}C_{g}$\\
+The total number of ways of choosing $n$ marbles out of $N$ marbles is $^{N}C_{n}$\\
+Hence the required probability is given by,
 \begin{align}
-\pr{X_1 = 0, \cdots, X_p = 0, X_{p+1} = 1, \cdots X_{p+q} = 1, X_{p+q+1} = 2, \cdots X_{p+q+r} = 2}
-\end{align}
-\begin{align}
-&= \brak{\frac{P}{N}\times \cdots \times \frac{P-\brak{p-1}}{N-\brak{p-1}}}\brak{\frac{Q}{N-p}\times \cdots \times \frac{Q-\brak{q-1}}{N-\brak{p+q-1}}} \brak{\frac{R}{N-\brak{p+q}} \times \cdots \times \frac{R-\brak{r-1}}{N-\brak{p+q+r-1}}}\\
-&= \frac{P! Q! R! \brak{N-\brak{p+q+r}}!}{N!\brak{P-p}!\brak{Q-q}!\brak{R-r}!} \\
-&= \frac{P! Q! R! \brak{N-n}!}{N!\brak{P-p}!\brak{Q-q}!\brak{R-r}!} \label{eq:1}
-\end{align}
-The expression \ref{eq:1} is one possibility of draws such that there are - $p$ red, $q$ blue, $r$ greem marbles. There are $\frac{n!}{p!q!r!}$ such terms, All have the same probability. Hence the required probability is given by, 
-\begin{align}
-&= \frac{n!}{p!q!r!} \frac{P! Q! R! \brak{N-n}!}{N!\brak{P-p}!\brak{Q-q}!\brak{R-r}!}\\
-&= \frac{P!}{p!\brak{P-p}!}\frac{Q!}{q!\brak{Q-q}!}\frac{R!}{R!\brak{R-r}!}\frac{n!\brak{N-n}!}{N!}\\
 &= \frac{^{P}C_{p} \times ^{Q}C_{q} \times ^{R}C_{r}}{^{N}C_{n}}
-\label{eq:2}
+\label{eq:1}
 \end{align}
-The formula \eqref{eq:2} is also verified through simulation
-%\begin{align}
-%\brak{\frac{p}{N}\times \frac{p-1}{N-1} \cdots \times \frac{1}{N-\brak{p-1}}}\brak{\frac{q}{N-\brak{p-1}-1}\times \frac{q-1}{N-\brak{p-1}-2} \cdots \times \frac{1}{N-\brak{p-1}-\brak{q-1}}} \brak{\frac{r}{N-\brak{p-1}-\brak{q-1}-1}\times \frac{r-1}{N-\brak{p-1}-\brak{q-1}-2} \cdots \times \frac{1}{N-\brak{p-1}-\brak{q-1}-\brak{r-1}}}
-%\end{align}
-\newpage
+\\
+\textbf{Lemma-2:} 
+\begin{align}
+{^{R}C_{0}} \, {^{B}C_{n}} + {^{R}C_{1}} \, {^{B}C_{n-1}} + \cdots + {^{R}C_{n}} \, {^{B}C_{0}} = {^{R+B}C_{n}} \label{eq:2}
+\end{align}
+\textbf{Proof:} \\
+We solve this by relating the LHS of the equation \eqref{eq:2} to some coefficient in a Binomial expansion. From Binomial theorem we have,
+\begin{align}
+\brak{a+b}^n = \sum_{k = 0}^{n} {^{n}C_{k}} \, a^r \, b^{n-r}
+\end{align}
+Consider the following Binomial expansions,
+\begin{align}
+\brak{x+1}^R = \sum_{k = 0}^{R} {^{R}C_{k}} \, x^k \label{eq:3}\\
+\brak{x+1}^B = \sum_{m = 0}^{B} {^{B}C_{m}} \, x^m \label{eq:4}
+\end{align}
+Now lets take the product of the eqations \eqref{eq:3}, \eqref{eq:4}
+\begin{align}
+\brak{x+1}^R \brak{x+1}^B = \sum_{k = 0}^{R} \sum_{m = 0}^{B} {^{R}C_{k}} {^{B}C_{m}}\, x^{k+m}\\
+\implies \brak{x+1}^{R+B} = \sum_{k = 0}^{R} \sum_{m = 0}^{B} {^{R}C_{k}} {^{B}C_{m}}\, x^{k+m} \label{eq:5}
+\end{align} 
+From the RHS of \eqref{eq:5}, the required expression, LHS of \eqref{eq:2} is the coefficient of $x^{n}$ in the above equation. The coefficient of $x^{n}$ in LHS of \eqref{eq:5} is ${^{R+B}C_{n}}$. 
+\begin{align}
+\implies {^{R}C_{0}} \, {^{B}C_{n}} + {^{R}C_{1}} \, {^{B}C_{n-1}} + \cdots + {^{R}C_{n}} \, {^{B}C_{0}} = {^{R+B}C_{n}} 
+\end{align}
+
+
 In this question, total marbles in the box are 60 - 10 red, 20 blue, 30 green. Out of which 5 balls are drawn. Hence we have,
 \begin{align}
-N = 60, \, P = 10, \,Q = 20,  \, R = 30, \,n = 5
+N = 60, \, R = 10, \,B = 20,  \, G = 30, \,n = 5
 \end{align}
 \begin{enumerate}
 \item The probability that all drawn marbles are blue implies
 \begin{align}
-p = 0,\,  q = 5, \, r = 0
+r = 0,\,  b = 5, \, G = 0
 \end{align}
-From \eqref{eq:2} we get the probability as,
+From \eqref{eq:1} we get the probability as,
 \begin{align}
 &= \frac{^{20}C_{5}}{^{60}C_{5}}
 \end{align}
-\item The probability that the drawn marble contains atleast 1 green. This event is complement to the event where no marble drawn is green, Its probability is given by,
+\item The probability that the drawn marble contains atleast 1 green, It is complement to the event where no marble drawn is green, For this event
 \begin{align}
+g = 0
+\end{align}
+From \eqref{eq:1} its probability is given by,
+\begin{align}
+&= \frac{{^{10}C_{0}} \, {^{20}C_{5}} + {^{10}C_{1}} \, {^{20}C_{4}} + \cdots + {^{10}C_{5}} \, {^{20}C_{0}}}{^{60}C_{5}}
+\end{align}
+From \eqref{eq:2} we get this as,
+\begin{align}
+&= \frac{^{10+20}C_{5}}{^{60}C_{5}}\\
 &= \frac{^{30}C_{5}}{^{60}C_{5}}
 \end{align}
 Hence the required probability is given by,
