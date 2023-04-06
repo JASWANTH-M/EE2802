@@ -142,27 +142,21 @@ columns=fullflexible
 \begin{enumerate}
 \item Mother, Father and Son line up at random for a family picture. Determine \pr{E \mid F} where \\
 $E$: Son on one end, $F$: Father in middle\\
-\textbf{Solution:} Consider the random variables $X_1,X_2, X_3$ which denotes the position that Mother, Father, Son take as described in the table \ref{tab:1}. 
-\begin{table}[h]
-\centering
-\input{tables/table1.tex}
-\caption{Random variables $X_1, X_2, X_3$}
-\label{tab:1}
-\end{table}
-
-We have the probabilities of events $E, F$ as shown in \ref{tab:2}
-\begin{table}[h]
-\centering
-\input{tables/table2.tex}
-\caption{Probabilities}
-\label{tab:2}
-\end{table}
-
-By using property of conditional probability we have,
+\textbf{Solution:} The total ways of arranging Father, Son, Mother in the family chart is 3! = 6. By using property of conditional probability we have,
 \begin{align}
 \pr{E \mid F}=\frac{\pr{EF}}{\pr{F}} \label{eq:1}
 \end{align}
-From the table \ref{tab:2} we have
+The probability that Father in middle is
+\begin{align}
+\pr{F} &= \frac{2!}{3!}\\
+&= \frac{1}{3}
+\end{align}
+The probability that Father in middle and Son is on one end is
+\begin{align}
+\pr{EF} &= \frac{2!}{3!}\\
+&= \frac{1}{3}
+\end{align}
+From the equation \eqref{eq:1}
 \begin{align}
 \pr{E \mid F} = 1
 \end{align}
