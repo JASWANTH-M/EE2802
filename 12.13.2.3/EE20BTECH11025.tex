@@ -142,11 +142,10 @@ columns=fullflexible
 \begin{enumerate}
 \item A box of oranges is inspected by examining three randomly selected oranges drawn without replacement. If all the three oranges are good, the box is approved for sale, otherwise, it is rejected. Find the probability that a box containing 15 oranges out of which 12 are good and 3 are bad ones will be approved for sale.\\
 
-\textbf{Solution:} Total number of ways of choosing 3 oranges is ${^{15}C_3}$ i.e., selecting 3 oranges from 15 oranges. Let $E$ denote the event of selecting 3 good oranges
-
-The number of ways of choosing 3 good oranges is ${^{12}C_3}$ i.e., selecting 3 oranges from 12 good oranges. Hence the required probability is 
+\textbf{Solution:} This problem can be related to marbles problem, except that there are just two types of marbles.
+Say Good oranges are Red marbeles, Bad oranges are green marbles. Then the required probability is
 \begin{align}
-\pr{E}&= \frac{^{12}C_3}{^{15}C_3}\\
+\pr{r = 3, g = 0}&= \frac{^{12}C_3 \times ^{3}C_0}{^{15}C_3}\\
 &= \frac{44}{91}
 \end{align}
 
