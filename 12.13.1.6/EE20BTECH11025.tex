@@ -160,6 +160,14 @@ X = X_1 + X_2 + X_3
 \end{align}
 The PMF of the random variable $X$ is given by,
 \begin{align}
+P_{X}\brak{n} = {^{N}C_{n}} {p}^{n} \brak{1-p}^{N-n}
+\end{align}
+Here we have
+\begin{align}
+N = 3, \, p = \frac{1}{2}
+\end{align}
+Hence we get the PMF as,
+\begin{align}
 P_{X}\brak{n} = 
 \begin{cases}
 {^{3}C_{0} \brak{\frac{1}{2}}^0 \brak{\frac{1}{2}}^3} = \frac{1}{8} & n = 0 \\
@@ -171,7 +179,7 @@ P_{X}\brak{n} =
 The CDF of the random variable $X$ is given by,
 \begin{align}
 F_{X}\brak{n} = 	\pr{X \le n} \label{eq:2}
-&= \sum_{i = 0}^{n} {^{N}C_{i}} {p}^{i} \brak{1-p}^{N-i}
+&= \sum_{i = 0}^{n} {^{N}C_{i}}\, {p}^{i} \brak{1-p}^{N-i}
 \end{align}
 
 \begin{enumerate}
