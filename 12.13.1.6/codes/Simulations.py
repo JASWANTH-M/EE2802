@@ -1,43 +1,26 @@
-import random
+import numpy as np
 
-num_trials = 100000  # number of trials to run
-count_E_F = 0  # count of trials where both E and F occurred
-count_F = 0  # count of trials where F occurred
+n_trials = 1000000
 
-# Part A
-for i in range(num_trials):
-    coin_tosses = [random.choice(['H', 'T']) for _ in range(3)]
-    if coin_tosses[:2] == ['H', 'H']:
-        count_F += 1
-        if coin_tosses[2] == 'H':
-            count_E_F += 1
+# Simulate tossing a fair coin 3 times
+coin_tosses = np.random.binomial(1, 0.5, size=(n_trials, 3))
 
-print("(A) Simulated probability of E given F:", count_E_F / count_F)
+# 1- heads, 0 - tails
 
+# (A) E: head on third toss, F: heads on first two tosses
+F_a = np.sum(coin_tosses[:, :2] == 1, axis=1) == 2
+EF_a = np.sum((coin_tosses[:, 2] == 1) & F_a)
+Pr_E_given_F_a = EF_a / np.sum(F_a)
+print("Pr(E|F) for a) is:", Pr_E_given_F_a)
 
-# Part B
-count_E_F = 0 
-count_F = 0
+# (B) E: at least two heads, F: at most two heads
+F_b = np.sum(coin_tosses == 1, axis=1) <= 2
+EF_b = np.sum((np.sum(coin_tosses, axis=1) >= 2) & F_b)
+Pr_E_given_F_b = EF_b / np.sum(F_b)
+print("Pr(E|F) for b) is:", Pr_E_given_F_b)
 
-for i in range(num_trials):
-    coin_tosses = [random.choice(['H', 'T']) for _ in range(3)]
-    if coin_tosses.count('H') <= 2:
-        count_F += 1
-        if coin_tosses.count('H') >= 2:
-            count_E_F += 1
-
-print("(B) Simulated probability of E given F:", count_E_F / count_F)
-
-
-# Part C
-count_E_F = 0 
-count_F = 0
-
-for i in range(num_trials):
-    coin_tosses = [random.choice(['H', 'T']) for _ in range(3)]
-    if 'T' in coin_tosses:
-        count_F += 1
-        if coin_tosses.count('T') <= 2:
-            count_E_F += 1
-
-print("(C) Simulated probability of E given F:", count_E_F / count_F)
+# (C) E: at most two tails, F: at least one tail
+F_c = np.sum(coin_tosses == 0, axis=1) >= 1
+EF_c = np.sum((np.sum(coin_tosses == 0, axis=1) <= 2) & F_c)
+Pr_E_given_F_c = EF_c / np.sum(F_c)
+print("Pr(E|F) for c) is:", Pr_E_given_F_c)
