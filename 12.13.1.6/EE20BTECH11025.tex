@@ -146,15 +146,15 @@ columns=fullflexible
 \item $E$ : at least two heads, $F$ : at most two heads
 \item $E$ : at most two tails, $F$ : at least one tail
 \end{enumerate}
-\textbf{Solution:} Consider the random variables $X_1, X_2, X_3$, which denotes the first, second and third toss respectively as described in table \ref{tab:1}.
+\textbf{Solution:} Consider the random variables $X_1, X_2, X_3,X$, which denotes the first, second, third toss and number of heads in the 3 tosses respectively as described in table \ref{tab:1}.
 \begin{table}[h]
 \centering
 \input{tables/table1.tex}
-\caption{Random variables $X_1, X_2, X_3$}
+\caption{Random variables $X_1, X_2, X_3, X$}
 \label{tab:1}
 \end{table}
 
-The probabilities for the random variables $X_1, X_2, X_3$ is listed in table \ref{tab:2}.
+The random variable $X$ follows binomial distribution. The probabilities for the random variables $X, X_i$ is listed in table \ref{tab:2}.
 \begin{table}[h]
 \centering
 \input{tables/table2.tex}
@@ -180,34 +180,33 @@ The required probability is given by,
 \pr{X_3 = 0 \mid X_1 + X_2 = 0}
 \end{align}
 \begin{align}
-&= \frac{\pr{X_1 + X_2 + X_3 = 0}}{\pr{X_1 + X_2 = 0}}\\
+&= \frac{\pr{X = 0}}{\pr{X_1 + X_2 = 0}}\\
 &= \frac{1}{2}
 \end{align}
 
 \item  The events $E, F, F^{\prime}$ can be described by the RV as
 \begin{align}
-E &: X_1 + X_2 + X_3 \leq 1\\
-F &: X_1 + X_2 + X_3 \geq 1\\
-F^{\prime} &: X_1 + X_2 + X_3 = 0 
+E &: X \leq 1\\
+F &: X \geq 1\\
+F^{\prime} &: X = 0 
 \end{align}
 The required probability is given by,
 \begin{align}
-&= \frac{\pr{X_1 + X_2 + X_3 = 1}}{1 - \pr{X_1 + X_2 + X_3 = 0}}\\
+&= \frac{\pr{X = 1}}{1 - \pr{X = 0}}\\
 &= \frac{\frac{3}{8}}{1-\frac{1}{8}}\\
 &= \frac{3}{7}
 \end{align}
 
 
 \item  For the events $E, F$, their complements are
-$E^{\prime}$ : all 3 tails, $F^{\prime}$ : zero tails. \\
-The events $E^{\prime}, F^{\prime}$ can be described by the RV as
+$E^{\prime}$ : all 3 tails, $F^{\prime}$ : zero tails. The events $E^{\prime}, F^{\prime}$ can be described by the RV as
 \begin{align}
-E^{\prime} &: X_1 + X_2 + X_3 = 3\\
-F^{\prime} &: X_1 + X_2 + X_3 = 0 
+E^{\prime} &: X = 3\\
+F^{\prime} &: X = 0 
 \end{align}
 The required probability is given by,
 \begin{align}
-&= \frac{1 - \pr{X_1 + X_2 + X_3 = 0 \text{ or }3}}{1 - \pr{X_1 + X_2 + X_3 = 0}}\\
+&= \frac{1 - \pr{X = 0 \text{ or }3}}{1 - \pr{X = 0}}\\
 &= \frac{1 - \brak{\frac{1}{8} + \frac{1}{8}}}{1-\frac{1}{8}}\\
 &= \frac{6}{7}
 \end{align}
