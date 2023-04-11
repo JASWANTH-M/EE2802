@@ -171,17 +171,7 @@ P_{X}\brak{n} =
 The CDF of the random variable $X$ is given by,
 \begin{align}
 F_{X}\brak{n} = 	\pr{X \le n} \label{eq:2}
-\end{align}
-From the equation \eqref{eq:2} we get,
-\begin{align}
-F_{X}\brak{n} = 
-\begin{cases}
-0 & n < 0 \\
-\frac{1}{8} & 0 \leq n < 1 \\
-\frac{1}{2} & 1 \leq n < 2 \\
-\frac{7}{8} & 2 \leq n < 3 \\
-1 & \text{otherwise}
-\end{cases}
+&= \sum_{i = 0}^{n} {^{N}C_{i}} {p}^{i} \brak{1-p}^{N-i}
 \end{align}
 
 \begin{enumerate}
