@@ -160,22 +160,13 @@ X = X_1 + X_2 + X_3
 \end{align}
 The PMF of the random variable $X$ is given by,
 \begin{align}
-P_{X}\brak{n} = {^{N}C_{n}} {p}^{n} \brak{1-p}^{N-n}
+P_{X}\brak{n} = {^{N}C_{n}} \, {p}^{n} \brak{1-p}^{N-n}
 \end{align}
 Here we have
 \begin{align}
 N = 3, \, p = \frac{1}{2}
 \end{align}
-Hence we get the PMF as,
-\begin{align}
-P_{X}\brak{n} = 
-\begin{cases}
-{^{3}C_{0} \brak{\frac{1}{2}}^0 \brak{\frac{1}{2}}^3} = \frac{1}{8} & n = 0 \\
-{^{3}C_{1} \brak{\frac{1}{2}}^1 \brak{\frac{1}{2}}^2} = \frac{3}{8} & n = 1 \\
-{^{3}C_{2} \brak{\frac{1}{2}}^2 \brak{\frac{1}{2}}^1} = \frac{3}{8} & n = 2 \\
-{^{3}C_{3} \brak{\frac{1}{2}}^3 \brak{\frac{1}{2}}^0} = \frac{1}{8} & n = 3 
-\end{cases}
-\end{align}
+
 The CDF of the random variable $X$ is given by,
 \begin{align}
 F_{X}\brak{n} = 	\pr{X \le n} \label{eq:2}
@@ -188,25 +179,40 @@ F_{X}\brak{n} = 	\pr{X \le n} \label{eq:2}
 E &: X_3 = 0\\
 F &: X_1 + X_2 = 0 
 \end{align}
-
+$Y$ is another random variable which represents the number of heads in first two tosses.
+\begin{align}
+Y = X_1 + X_2
+\end{align} 
+The PMF of the random variable $Y$ is given by,
+\begin{align}
+P_{Y}\brak{n} = {^{N}C_{n}} \, {p}^{n} \brak{1-p}^{N-n}
+\end{align}
+Here we have
+\begin{align}
+N = 2, \, p = \frac{1}{2}
+\end{align}
 The required probability is given by,
 \begin{align}
-\pr{X_3 = 0 \mid X_1 + X_2 = 0}
+\pr{X_3 = 0 \mid Y = 0}
 \end{align}
 \begin{align}
-&= \frac{\pr{X = 0}}{\pr{X_1 + X_2 = 0}}\\
+&= \frac{\pr{X = 0}}{\pr{Y = 0}}\\
 &= \frac{1}{2}
 \end{align}
 
 \item  The events $E, F, F^{\prime}$ can be described by the RV as
 \begin{align}
-E &: X \leq 1\\
-F &: X \geq 1\\
+E &: X \leq 1 \label{eq:3}\\
+F &: X \geq 1 \label{eq:4}\\
 F^{\prime} &: X = 0 
 \end{align}
 The required probability is given by,
 \begin{align}
-&= \frac{\pr{X = 1}}{1 - \pr{X = 0}}\\
+&= \frac{\pr{EF}}{1- \pr{F^{\prime}}}
+\end{align}
+The inequality conditions of $EF$ as in \ref{eq:3}, \ref{eq:4} reduces to the equality condition as in \ref{eq:5}
+\begin{align}
+&= \frac{\pr{X = 1}}{1 - \pr{X = 0}}  \label{eq:5}\\
 &= \frac{\frac{3}{8}}{1-\frac{1}{8}}\\
 &= \frac{3}{7}
 \end{align}
@@ -221,11 +227,11 @@ F^{\prime} &: X = 0
 By using property of conditional probability we have,
 \begin{align}
 \pr{E \mid F} &= \frac{\pr{EF}}{\pr{F}} \label{eq:1}\\
-&= \frac{1 - \pr{E^{\prime} \text{ or }F^{\prime}}}{\pr{F}}
+&= \frac{1 - \pr{E^{\prime} + F^{\prime}}}{\pr{F}}
 \end{align}
 The required probability is given by,
 \begin{align}
-&= \frac{1 - \pr{X = 0 \text{ or }3}}{1 - \pr{X = 0}}\\
+&= \frac{1 - \pr{X = 0 + X = 3}}{1 - \pr{X = 0}}\\
 &= \frac{1 - \brak{\frac{1}{8} + \frac{1}{8}}}{1-\frac{1}{8}}\\
 &= \frac{6}{7}
 \end{align}
