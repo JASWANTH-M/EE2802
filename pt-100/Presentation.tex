@@ -123,6 +123,52 @@
 
 \begin{frame}{Design Parameter $R$}
 
+\begin{itemize}
+\item We want to read as many temperatures as possible. In order to do that
+\begin{align}
+\max {\frac{\Delta V}{\Delta T}}\\
+V = \frac{5P}{R+P}
+\end{align}
+\item Lets say the minimum, maximum temperature we want to measure are $T_{min}, T_{max}$ and corresponding PT-100 resistance is $P_{min}, P_{max}$ respectively.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Design Parameter $R$}
+
+\begin{itemize}
+\item Consider the following case,
+\begin{align}
+T_{min} = -100 ^{\circ} \text{C}  \quad
+T_{max} = 300 ^{\circ} \text{C}
+\end{align}
+The corresponding PT-100 resistance (from the data sheet) are
+\begin{align}
+P_{min} = 60 \Omega  \quad P_{max} = 200 \Omega
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Design Parameter $R$}
+
+\begin{itemize}
+\item 
+\begin{align} 
+\Delta V\brak{R} &= V \brak{R, P_{max}} - V \brak{R, P_{min}} \\
+\Delta V\brak{R} &= \frac{5 \times 200}{R + 200} - \frac{5 \times 60}{R + 60}\\
+\Delta V &= \frac{700R}{\brak{R+60}\brak{R+200}}\\
+\Delta V &= \frac{700}{\brak{R + \frac{12000}{R}} + 260}
+\end{align}
+\item By AM-GM inequality, we can get the optimal $R$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Design Parameter $R$}
+\begin{itemize} 
+\item To maximize $\Delta V$, the optimal $R$ is given by
+\begin{align}
+R = 20\sqrt{30} \approx 110 \, \Omega
+\end{align}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Complete Circuit Diagram}
