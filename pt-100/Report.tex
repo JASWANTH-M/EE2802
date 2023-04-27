@@ -127,7 +127,7 @@ The circuit diagram that is used inorder to collect the data is shown in the bel
     \centering
     \begin{circuitikz} \draw
         (0,0) to[battery1, l=$5\ V$, invert] (0,2)
-        to[R, l^=$185\ \Omega$] (3,2) to[short, -o] (5,2);
+        to[R, l^=$182\ \Omega$] (3,2) to[short, -o] (5,2);
         \draw (3,2) to[R, l^=$P\ \Omega$] (3,0)
         -- (0,0);
         \draw (3,0) to[short, -o] (5,0);
@@ -161,7 +161,7 @@ The aim is to estimate the best fit parameters $A, B$ for the linear model.
 \section{Solution}
 We find $\vec{n}$ by using the least sqaures method i.e., The value of $\vec{n}$ such that error function is minimized.
 \begin{align}
-e\brak{\vec{n}} = \norm{\vec{Y} - \vec{X} ^\top\vec{n}}
+e\brak{\vec{n}} = \norm{\vec{Y} - \vec{X} ^\top\vec{n}}^2
 \end{align} 
 From python code, The value of $\vec{n}$ is given by,
 \begin{align}
